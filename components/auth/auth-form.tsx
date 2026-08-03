@@ -37,19 +37,19 @@ const initialState: ActionResult<AuthSuccess> = {}
 
 const copy = {
   login: {
-    title: 'Welcome back',
-    description: 'Sign in to reach your vault.',
-    action: 'Sign in',
-    switchText: 'New to Cipher?',
-    switchCta: 'Create an account',
+    title: 'Masuk dulu',
+    description: 'Gunakan nama unik kamu untuk membuka vault.',
+    action: 'Masuk',
+    switchText: 'Belum punya akun?',
+    switchCta: 'Buat akun',
     switchHref: '/register',
   },
   register: {
-    title: 'Create your account',
-    description: 'Start sending secret messages in seconds.',
-    action: 'Create account',
-    switchText: 'Already have an account?',
-    switchCta: 'Sign in',
+    title: 'Buat akun',
+    description: 'Pilih nama unik, lalu mulai simpan pesan rahasia.',
+    action: 'Buat akun',
+    switchText: 'Sudah punya akun?',
+    switchCta: 'Masuk',
     switchHref: '/login',
   },
 } as const
@@ -91,15 +91,21 @@ export function AuthForm({ mode }: AuthFormProps) {
         <CardContent>
           <FieldGroup>
             <Field>
-              <FieldLabel htmlFor="email">Email</FieldLabel>
+              <FieldLabel htmlFor="username">Nama unik</FieldLabel>
               <Input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                placeholder="jane@example.com"
+                id="username"
+                name="username"
+                autoComplete="username"
+                placeholder="contoh: chigoov_01"
+                pattern="[A-Za-z0-9_-]{3,32}"
+                title="Gunakan 3-32 karakter: huruf, angka, _ atau -"
                 required
               />
+              {mode === 'register' && (
+                <FieldDescription>
+                  Gunakan 3-32 karakter: huruf, angka, _ atau -.
+                </FieldDescription>
+              )}
             </Field>
             <Field>
               <FieldLabel htmlFor="password">Password</FieldLabel>

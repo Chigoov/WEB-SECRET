@@ -21,6 +21,7 @@ export interface UnlockPayload {
 export interface ProfileRow {
   id: string
   email: string
+  username: string
   role: string
   created_at: string
 }
