@@ -39,7 +39,7 @@ function SubmitButton({ disabled }: { disabled: boolean }) {
 export function CreateMessageForm() {
   const [message, setMessage] = useState('')
   const [code, setCode] = useState('')
-  const [destroy, setDestroy] = useState(true)
+  const [destroy, setDestroy] = useState(false)
   const [state, formAction] = useActionState(createSecretMessage, initialState)
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export function CreateMessageForm() {
     })
     setMessage('')
     setCode('')
-    setDestroy(true)
+    setDestroy(false)
   }, [state])
 
   return (
