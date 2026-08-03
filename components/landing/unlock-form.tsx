@@ -62,6 +62,7 @@ export function UnlockForm() {
             placeholder="Masukkan sandi rahasia"
             aria-label="Sandi rahasia"
             className="h-11 pl-9 font-mono"
+            maxLength={80}
             required
           />
         </div>

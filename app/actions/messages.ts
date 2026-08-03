@@ -8,6 +8,9 @@ type CreateMessageSuccess = {
   code: string
 }
 
+const MAX_MESSAGE_LENGTH = 5000
+const MAX_CODE_LENGTH = 80
+
 function readString(formData: FormData, key: string) {
   return String(formData.get(key) ?? '').trim()
 }
@@ -22,6 +25,14 @@ export async function createSecretMessage(
 
   if (!content || !secretCode) {
     return { error: 'Message and secret code are required.' }
+  }
+
+  if (content.length > MAX_MESSAGE_LENGTH) {
+    return { error: `Message must be ${MAX_MESSAGE_LENGTH} characters or less.` }
+  }
+
+  if (secretCode.length > MAX_CODE_LENGTH) {
+    return { error: `Secret code must be ${MAX_CODE_LENGTH} characters or less.` }
   }
 
   const supabase = await createClient()
@@ -86,6 +97,10 @@ export async function unlockSecretMessage(
 
   if (!secretCode) {
     return { error: 'Secret code is required.' }
+  }
+
+  if (secretCode.length > MAX_CODE_LENGTH) {
+    return { error: `Secret code must be ${MAX_CODE_LENGTH} characters or less.` }
   }
 
   const supabase = await createClient()

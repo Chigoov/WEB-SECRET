@@ -68,10 +68,12 @@ export function CreateMessageForm() {
                 onChange={(event) => setMessage(event.target.value)}
                 placeholder="Type the message you want to keep secret..."
                 className="min-h-40 resize-y"
+                maxLength={5000}
                 required
               />
               <FieldDescription>
-                Only someone with the code can read this.
+                Only someone with the code can read this. Max 5,000
+                characters.
               </FieldDescription>
             </Field>
 
@@ -84,6 +86,7 @@ export function CreateMessageForm() {
                 onChange={(event) => setCode(event.target.value)}
                 placeholder="e.g. blue-harbor"
                 className="font-mono sm:max-w-xs"
+                maxLength={80}
                 required
               />
               <FieldDescription>
