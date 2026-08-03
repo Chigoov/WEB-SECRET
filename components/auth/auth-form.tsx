@@ -139,6 +139,15 @@ export function AuthForm({ mode }: AuthFormProps) {
               {t.switchCta}
             </Link>
           </p>
+          <p className="text-center text-sm text-muted-foreground">
+            Punya sandi rahasia dari orang lain?{' '}
+            <Link
+              href="/unlock"
+              className="font-medium text-foreground underline underline-offset-4"
+            >
+              Buka pesan
+            </Link>
+          </p>
         </CardFooter>
       </form>
     </Card>

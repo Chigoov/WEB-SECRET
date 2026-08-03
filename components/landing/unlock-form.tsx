@@ -17,7 +17,7 @@ function UnlockButton() {
   return (
     <Button type="submit" disabled={pending} className="h-11 px-5 sm:w-auto">
       <Unlock data-icon="inline-start" />
-      {pending ? 'Unlocking...' : 'Unlock'}
+      {pending ? 'Membuka...' : 'Buka'}
     </Button>
   )
 }
@@ -32,7 +32,7 @@ export function UnlockForm() {
     return (
       <Card className="border-border/70 bg-muted/40 text-left">
         <CardHeader>
-          <CardTitle className="text-lg">Message Unlocked</CardTitle>
+          <CardTitle className="text-lg">Pesan terbuka</CardTitle>
         </CardHeader>
         <CardContent className="flex flex-col gap-3 py-1">
           <p className="text-sm leading-relaxed text-foreground">
@@ -41,7 +41,7 @@ export function UnlockForm() {
           {state.success.destroyed && (
             <p className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
               <ShieldAlert className="size-3.5" aria-hidden="true" />
-              This message was set to destroy after reading.
+              Pesan ini diatur untuk terhapus setelah dibaca.
             </p>
           )}
         </CardContent>
@@ -59,8 +59,8 @@ export function UnlockForm() {
           />
           <Input
             name="secret_code"
-            placeholder="Enter secret code"
-            aria-label="Secret code"
+            placeholder="Masukkan sandi rahasia"
+            aria-label="Sandi rahasia"
             className="h-11 pl-9 font-mono"
             required
           />
