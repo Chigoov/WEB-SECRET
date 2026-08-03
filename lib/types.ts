@@ -8,6 +8,7 @@ export type ActionResult<T = unknown> = {
 export interface VaultMessage {
   id: string
   code: string
+  content: string
   createdAt: string
   status: MessageStatus
   destroyAfterReading: boolean

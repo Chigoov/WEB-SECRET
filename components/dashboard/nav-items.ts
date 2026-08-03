@@ -1,4 +1,4 @@
-import { PenSquare, Vault, type LucideIcon } from 'lucide-react'
+import { PenSquare, Search, Vault, type LucideIcon } from 'lucide-react'
 
 export interface NavItem {
   label: string
@@ -8,5 +8,6 @@ export interface NavItem {
 
 export const navItems: NavItem[] = [
   { label: 'Create Message', href: '/dashboard', icon: PenSquare },
+  { label: 'Search Message', href: '/dashboard/search', icon: Search },
   { label: 'My Vault', href: '/dashboard/vault', icon: Vault },
 ]

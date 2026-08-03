@@ -42,19 +42,20 @@ export function VaultTable({ messages }: { messages: VaultMessage[] }) {
   }
 
   return (
-    <Card className="overflow-hidden border-border/70 py-0">
+    <Card className="overflow-x-auto border-border/70 py-0">
       <Table>
         <TableHeader>
           <TableRow>
             <TableHead>Date Created</TableHead>
             <TableHead>Secret Code</TableHead>
+            <TableHead>Message</TableHead>
             <TableHead className="text-right">Status</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {messages.map((message) => (
             <TableRow key={message.id}>
-              <TableCell className="text-muted-foreground">
+              <TableCell className="whitespace-nowrap text-muted-foreground">
                 {dateFormatter.format(new Date(message.createdAt))}
               </TableCell>
               <TableCell>
@@ -67,6 +68,9 @@ export function VaultTable({ messages }: { messages: VaultMessage[] }) {
                     />
                   )}
                 </span>
+              </TableCell>
+              <TableCell className="min-w-64 max-w-sm whitespace-pre-wrap text-muted-foreground">
+                {message.content}
               </TableCell>
               <TableCell className="text-right">
                 <StatusBadge status={message.status} />

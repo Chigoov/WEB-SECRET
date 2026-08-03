@@ -14,3 +14,6 @@ node_modules
 .next/
 tsconfig.tsbuildinfo
 .DS_Store
+
+# Local Netlify folder
+.netlify

@@ -74,7 +74,7 @@ export async function getUserVaultMessages(): Promise<VaultMessage[]> {
 
   const { data, error } = await supabase
     .from('messages')
-    .select('id, secret_code, is_read, destroy_after_read, created_at')
+    .select('id, content, secret_code, is_read, destroy_after_read, created_at')
     .eq('user_id', user.id)
     .order('created_at', { ascending: false })
 
@@ -83,6 +83,7 @@ export async function getUserVaultMessages(): Promise<VaultMessage[]> {
   return data.map((message) => ({
     id: message.id,
     code: message.secret_code,
+    content: message.content,
     createdAt: message.created_at,
     status: message.is_read ? 'read' : 'unread',
     destroyAfterReading: message.destroy_after_read,
